@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Condition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7cb2e4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            border-radius: 15px;
+            padding: 30px;
+            width: 95%;
+            max-width: 900px;
+            background-color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #222;
+            text-align: center;
+        }
+        .zone-box {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            color: white;
+        }
+        .safe-zone { background-color: #28a745; }
+        .medium-zone { background-color: #ffc107; color: black; }
+        .danger-zone { background-color: #dc3545; }
+        h3 { margin-top: 0; }
+        ul { padding-left: 20px; }
+        .section-title {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Patient Condition Status</h2>
+
+        {% if prediction_text == 'THE PATIENT MIGHT NOT GO IN THE STATE OF DANGEROUS ZONE. THIS IS COMPLETELY SAFE ZONE.' %}
+        <!-- SAFE ZONE -->
+        <div class="zone-box safe-zone">
+            <p>{{ prediction_text }}</p>
+            <p>The patient’s vital signs are stable and within the healthy range. No signs of critical health issues are present at the moment.</p>
+            
+            <p class="section-title">✅ Prevention:</p>
+            <ul>
+                <li>Maintain a balanced diet rich in fruits, vegetables, and lean proteins.</li>
+                <li>Stay hydrated throughout the day.</li>
+                <li>Regularly monitor vital signs at least once every 6 months.</li>
+            </ul>
+
+            <p class="section-title">⚠️ Precautions:</p>
+            <ul>
+                <li>Avoid excessive stress and lack of sleep.</li>
+                <li>Limit high-sugar and high-sodium foods.</li>
+                <li>Ensure vaccinations and health checkups are up-to-date.</li>
+            </ul>
+
+            <p class="section-title">💡 Solutions & Treatments:</p>
+            <ul>
+                <li>No medical treatment required; maintain current healthy lifestyle.</li>
+                <li>Periodic medical checkups to ensure continued well-being.</li>
+            </ul>
+
+            <p class="section-title">🏃 Physical Activity:</p>
+            <ul>
+                <li>Engage in 30 minutes of moderate exercise (walking, yoga, swimming) at least 5 days a week.</li>
+                <li>Incorporate light stretching to improve flexibility.</li>
+            </ul>
+        </div>
+        {% elif prediction_text == 'THE PATIENT MIGHT GO IN THE STATE OF MEDIUM LEVEL ZONE.' %}
+        <!-- MEDIUM ZONE -->
+        <div class="zone-box medium-zone">
+            <p>{{ prediction_text }}</p>
+            <p>The patient shows signs of mild to moderate health risk. Some vital signs may be slightly outside the optimal range and require closer observation.</p>
+            
+            <p class="section-title">✅ Prevention:</p>
+            <ul>
+                <li>Adopt a low-sodium, high-fiber diet.</li>
+                <li>Reduce caffeine and processed food intake.</li>
+                <li>Schedule regular health screenings every 1-3 months.</li>
+            </ul>
+
+            <p class="section-title">⚠️ Precautions:</p>
+            <ul>
+                <li>Avoid high-stress environments.</li>
+                <li>Maintain a proper sleep cycle (7–8 hours per night).</li>
+                <li>Limit alcohol and tobacco use.</li>
+            </ul>
+
+            <p class="section-title">💡 Solutions & Treatments:</p>
+            <ul>
+                <li>Consult with a healthcare provider for possible preventive medication.</li>
+                <li>Start dietary and lifestyle modifications to bring vitals back to normal range.</li>
+            </ul>
+
+            <p class="section-title">🏃 Physical Activity:</p>
+            <ul>
+                <li>Moderate exercise (brisk walking, light jogging) for 20–30 minutes, 3–4 days a week.</li>
+                <li>Include breathing exercises to improve lung capacity.</li>
+            </ul>
+        </div>
+        {% elif prediction_text == 'THE PATIENT MIGHT GO IN THE STATE OF DANGEROUS ZONE. WE SHOULD TAKE TREATMENTS TO THIS PATIENT IMMEDIATELY' %}
+        <!-- DANGER ZONE -->
+        <div class="zone-box danger-zone">
+            <p>{{ prediction_text }}</p>
+            <p>The patient is at significant risk of a serious health event. Immediate medical intervention is recommended.</p>
+            
+            <p class="section-title">✅ Prevention:</p>
+            <ul>
+                <li>Strict medical supervision and regular hospital visits.</li>
+                <li>Follow a medically approved diet plan.</li>
+                <li>Monitor vital signs daily.</li>
+            </ul>
+
+            <p class="section-title">⚠️ Precautions:</p>
+            <ul>
+                <li>Do not engage in strenuous physical activity without doctor approval.</li>
+                <li>Avoid situations that can cause extreme stress.</li>
+                <li>Keep emergency contact and medical information handy at all times.</li>
+            </ul>
+
+            <p class="section-title">💡 Solutions & Treatments:</p>
+            <ul>
+                <li>Immediate hospital admission may be required.</li>
+                <li>Administer prescribed medications without delay.</li>
+                <li>Consider advanced diagnostic tests to identify root cause.</li>
+            </ul>
+
+            <p class="section-title">🏃 Physical Activity:</p>
+            <ul>
+                <li>Minimal activity — focus on rest and recovery.</li>
+                <li>Light physiotherapy if prescribed by a doctor.</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mediplus - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+    
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/static/css/aos.css">
+
+    <link rel="stylesheet" href="/static/css/ionicons.min.css">
+    
+    <link rel="stylesheet" href="/static/css/flaticon.css">
+    <link rel="stylesheet" href="/static/css/icomoon.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  	<div class="py-1 bg-black top">
+    	<div class="container">
+    		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+	    		<div class="col-lg-12 d-block">
+		    		<div class="row d-flex">
+		    			<div class="col-md pr-4 d-flex topper align-items-center">
+					    
+						   
+					    </div>
+					    <div class="col-md pr-4 d-flex topper align-items-center">
+					    	
+						   
+					    </div>
+					   
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+		  </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Mediplus</a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+					{% if user.is_authenticated %}
+	          <li class="nav-item"><a href="{% url 'Home_4' %}" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link"><span>Profile</span></a></li>
+	          <!-- <li class="nav-item"><a href="{% url 'patient_list' %}" class="nav-link"><span>ML Database</span></a></li> -->
+	          <!-- <li class="nav-item"><a href="{% url 'database' %}" class="nav-link"><span>Image Database</span></a></li> -->
+	          <li class="nav-item"><a href="{% url 'Logout' %}" class="nav-link"><span>Logout</span></a></li>
+
+			  	   {% else %}
+	          <li class="nav-item cta mr-md-2"><a href="{% url 'Register_2' %}" class="nav-link">Register</a></li>
+			    {% endif %}
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  
+	  <section class="hero-wrap js-fullheight" style="background-image: url('/static/images/bg_3.jpg');" data-section="home" data-stellar-background-ratio="0.5">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+      <div class="col-md-6 pt-5 ftco-animate">
+        <div class="mt-5">
+          <span class="subheading">Welcome to Mediplus</span>
+          <h1 class="mb-4">Patient Risk Level <br> Prediction</h1>
+          <p class="mb-4">
+            Our system uses advanced Machine Learning and Deep Learning techniques to assist in the early detection and prediction of kidney diseases. Leveraging medical data, it supports timely diagnosis and better decision-making.
+          </p>
+          {% if user.is_authenticated %}
+            <div class="d-flex gap-2">
+              <a href="{% url 'Deploy_9' %}" class="btn btn-primary py-3 px-4">ML Model</a>
+              <!-- <a href="{% url 'Deploy_10' %}" class="btn btn-primary py-3 px-4">DL Model</a> -->
+            </div>
+          {% else %}
+            <div class="d-flex gap-2">
+              <a href="{% url 'Login_3' %}" class="btn btn-primary py-3 px-4">Login</a>
+              <a href="{% url 'Register_2' %}" class="btn btn-primary py-3 px-4">Register</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+	{% if user.is_authenticated %}
+		<section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="col-md-6 col-lg-5 d-flex">
+        <div class="img d-flex align-self-stretch align-items-center" style="background-image:url(/static/images/about.jpg);">
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-7 pl-lg-5 py-md-5">
+        <div class="py-md-5">
+          <div class="row justify-content-start pb-3">
+            <div class="col-md-12 heading-section ftco-animate p-4 p-lg-5">
+              <h2 class="mb-4">We Are <span>Mediplus</span> — Care with AI</h2>
+              <p>
+                At Mediplus, we leverage cutting-edge Machine Learning (ML) and Deep Learning (DL) technologies to support early detection and risk prediction. Our AI-powered tools are designed to analyze patient health data and assist healthcare professionals in making informed decisions.
+              </p>
+              <p>
+                Our goal is to make advanced diagnostic support accessible and efficient, enhancing the accuracy of kidney disease identification and aiding in timely medical intervention.
+              </p>
+              <p>
+                <a href="#" class="btn btn-primary py-3 px-4">Make an Appointment</a>
+                <a href="#" class="btn btn-secondary py-3 px-4">Contact Us</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftco-no-pb ftco-services-2 bg-light">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="col-md-7 py-5">
+        <div class="py-lg-5">
+          <div class="row justify-content-center pb-5">
+            <div class="col-md-12 heading-section ftco-animate">
+              <h2 class="mb-3">Our Services</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services d-flex">
+                <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-stethoscope"></span></div>
+                <div class="media-body pl-md-4">
+                  <h3 class="heading mb-3">ML-Based Prediction</h3>
+                  <p>We use advanced Machine Learning models to predict the likelihood of chronic kidney disease based on key clinical parameters.</p>
+                </div>
+              </div>      
+            </div>
+            <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services d-flex">
+                <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-doctor"></span></div>
+                <div class="media-body pl-md-4">
+                  <h3 class="heading mb-3">DL-Based Detection</h3>
+                  <p>Deep Learning algorithms help detect critical patterns and support diagnostic insights for early-stage kidney conditions.</p>
+                </div>
+              </div>      
+            </div>
+            <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services d-flex">
+                <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-24-hours"></span></div>
+                <div class="media-body pl-md-4">
+                  <h3 class="heading mb-3">Report Generation</h3>
+                  <p>After analysis, our system provides detailed diagnostic reports with interpretation to aid doctors in their treatment planning.</p>
+                </div>
+              </div>      
+            </div>
+            <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services d-flex">
+                <div class="icon justify-content-center align-items-center d-flex"><span class="flaticon-ambulance"></span></div>
+                <div class="media-body pl-md-4">
+                  <h3 class="heading mb-3">Early Risk Alerts</h3>
+                  <p>Receive alerts for potential kidney health risks using AI-powered health monitoring tools before symptoms become severe.</p>
+                </div>
+              </div>      
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Replaced form with informational content -->
+      <div class="col-md-5 d-flex">
+        <div class="bg-white p-4 p-md-5 d-flex align-items-center ftco-animate">
+          <div>
+            <h3 class="mb-4">Why Choose Us?</h3>
+            <ul class="list-unstyled">
+              <li class="mb-3"><strong>AI-Powered Diagnosis:</strong> Our platform leverages the latest in AI technology to ensure accurate and reliable results.</li>
+              <li class="mb-3"><strong>Clinical Accuracy:</strong> Developed in collaboration with medical professionals to ensure practical applicability.</li>
+              <li class="mb-3"><strong>User-Friendly Interface:</strong> Easy-to-use system suitable for both medical experts and patients.</li>
+              <li class="mb-3"><strong>Secure & Private:</strong> All patient data is handled with the highest security and confidentiality standards.</li>
+              <li class="mb-3"><strong>Trusted by Experts:</strong> Our models are validated using real-world datasets and are trusted in clinical settings.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+   <section class="ftco-intro img" style="background-image: url(/static/images/bg_2.jpg);">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-9 text-center">
+        <h2>Your Kidney Health is Our Priority</h2>
+        <p>Empowering early detection and accurate prediction of kidney disease using cutting-edge Machine Learning and Deep Learning technologies.</p>
+        <p class="mb-0"><a href="#" class="btn btn-white px-4 py-3">Explore Our Solutions</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+		<section class="ftco-section ftco-no-pt ftco-no-pb" id="department-section">
+  <div class="container-fluid px-0">
+    <div class="row no-gutters">
+      <!-- Image Column -->
+      <div class="col-md-4 d-flex">
+        <div class="img img-dept align-self-stretch" style="background-image: url(/static/images/dept-1.jpg);"></div>
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-md-8">
+        <div class="row no-gutters">
+          <!-- Column 1 -->
+          <div class="col-md-4 d-flex flex-column">
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">Kidney Diagnostics</a></h3>
+                <p>Comprehensive screening and detection of kidney function abnormalities using AI-powered tools.</p>
+              </div>
+            </div>
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">ML-Based Prediction</a></h3>
+                <p>Predict the risk of chronic kidney disease using machine learning algorithms and health indicators.</p>
+              </div>
+            </div>
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">Dietary Guidance</a></h3>
+                <p>Personalized kidney-friendly diet suggestions based on patient data and risk level.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="col-md-4 d-flex flex-column">
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">DL Image Analysis</a></h3>
+                <p>Analyze ultrasound and CT images using Deep Learning to detect early signs of kidney disease.</p>
+              </div>
+            </div>
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">Risk Stratification</a></h3>
+                <p>Classify patients based on disease severity using AI scoring models to aid clinical decisions.</p>
+              </div>
+            </div>
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">Lab Report Analysis</a></h3>
+                <p>AI-assisted interpretation of lab reports such as eGFR, creatinine, and protein levels.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="col-md-4 d-flex flex-column">
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">Early Warning Alerts</a></h3>
+                <p>Get notified of high-risk indicators before major symptoms develop using predictive AI tools.</p>
+              </div>
+            </div>
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">Patient History Insights</a></h3>
+                <p>Automatically generate insights from historical data to monitor kidney health progression.</p>
+              </div>
+            </div>
+            <div class="department-wrap p-4 ftco-animate flex-fill">
+              <div class="text p-2 text-center">
+                <div class="icon"><span class="flaticon-stethoscope"></span></div>
+                <h3><a href="#">Specialist Consultation</a></h3>
+                <p>Connect with kidney care experts for personalized evaluation and second opinions.</p>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- inner row -->
+      </div> <!-- content column -->
+    </div> <!-- outer row -->
+  </div> <!-- container -->
+</section>
+
+	<section class="ftco-section" id="doctor-section">
+  <div class="container-fluid px-5">
+    <div class="row justify-content-center mb-5 pb-2">
+      <div class="col-md-8 text-center heading-section ftco-animate">
+        <h2 class="mb-4">Why Choose Our AI Kidney Health Platform</h2>
+        <p>Combining cutting-edge technology with healthcare expertise to enable early diagnosis, better predictions, and improved patient outcomes.</p>
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="col-md-6 col-lg-3 ftco-animate">
+        <div class="staff text-center p-4 bg-light h-100">
+          <div class="img-wrap d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+            <img src="https://www.aimtechnologies.co/wp-content/uploads/2025/03/Gen-Z-and-generative-AI-1.png" alt="AI Model" style="max-height: 100%;">
+          </div>
+          <h4>AI-Powered Accuracy</h4>
+          <p>Harness the precision of Machine Learning and Deep Learning for reliable kidney disease detection.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 ftco-animate">
+        <div class="staff text-center p-4 bg-light h-100">
+          <div class="img-wrap d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+            <img src="https://thumbs.dreamstime.com/b/icon-representing-reporting-processes-business-352796616.jpg" alt="Report Generation" style="max-height: 100%;">
+          </div>
+          <h4>Instant Reports</h4>
+          <p>Get automated diagnostic reports with insights and interpretation within seconds.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 ftco-animate">
+        <div class="staff text-center p-4 bg-light h-100">
+          <div class="img-wrap d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+            <img src="https://img.freepik.com/premium-vector/illustration-privacy-data-protection-padlock-lock-keyhole-technology-logo-design_629524-551.jpg" alt="Data Security" style="max-height: 100%;">
+          </div>
+          <h4>Data Privacy</h4>
+          <p>All patient data is handled securely with end-to-end encryption and confidentiality.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 ftco-animate">
+        <div class="staff text-center p-4 bg-light h-100">
+          <div class="img-wrap d-flex align-items-center justify-content-center mb-3" style="height: 150px;">
+            <img src="https://thumbs.dreamstime.com/b/scalability-scalable-system-line-sign-icon-logo-concept-resize-window-app-illustration-205122037.jpg" alt="Support" style="max-height: 100%;">
+          </div>
+          <h4>Support & Scalability</h4>
+          <p>Built to support clinics, hospitals, and individuals with scalable infrastructure and expert assistance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+		<section class="ftco-facts img ftco-counter" style="background-image: url(/static/images/bg_3.jpg);">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <!-- Left Column -->
+      <div class="col-md-5 heading-section heading-section-white">
+        <span class="subheading">AI in Healthcare</span>
+        <h2 class="mb-4">Transforming Kidney Disease Detection</h2>
+        <p class="mb-0"><a href="#" class="btn btn-secondary px-4 py-3">Explore Our Technology</a></p>
+      </div>
+
+      <!-- Right Column with Stats -->
+      <div class="col-md-7">
+        <div class="row pt-4">
+
+          <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="5100">0</strong>
+                <span>Patients Screened</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="98">0</strong>
+                <span>% Prediction Accuracy</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="120">0</strong>
+                <span>Clinical Partners</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18">
+              <div class="text">
+                <strong class="number" data-number="24">0</strong>
+                <span>ML & DL Models Trained</span>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- End inner row -->
+      </div>
+    </div> <!-- End outer row -->
+  </div>
+</section>
+
+<section class="ftco-section bg-light" id="blog-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5 pb-5">
+      <div class="col-md-10 heading-section text-center ftco-animate">
+        <h2 class="mb-4">Latest Research & Updates</h2>
+        <p>Stay informed about innovations in AI-powered kidney disease detection and medical AI solutions.</p>
+      </div>
+    </div>
+    <div class="row d-flex">
+      <div class="col-md-4 ftco-animate">
+        <div class="blog-entry">
+          <a href="#" class="block-20" style="background-image: url('/static/images/image_1.jpg');"></a>
+          <div class="text d-block">
+            <h3 class="heading"><a href="#">How Machine Learning Helps Detect Kidney Issues Early</a></h3>
+            <p>Machine learning models are improving early prediction rates and enabling faster intervention.</p>
+            <p><a href="#" class="btn btn-primary py-2 px-3">Read more</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 ftco-animate">
+        <div class="blog-entry">
+          <a href="#" class="block-20" style="background-image: url('/static/images/image_2.jpg');"></a>
+          <div class="text d-block">
+            <h3 class="heading"><a href="#">Deep Learning Models Revolutionizing Diagnosis</a></h3>
+            <p>Advanced DL networks like CNNs are now capable of detecting subtle kidney abnormalities in scans.</p>
+            <p><a href="#" class="btn btn-primary py-2 px-3">Read more</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 ftco-animate">
+        <div class="blog-entry">
+          <a href="#" class="block-20" style="background-image: url('/static/images/image_3.jpg');"></a>
+          <div class="text d-block">
+            <h3 class="heading"><a href="#">Benefits of AI Screening in Rural Healthcare</a></h3>
+            <p>Learn how AI tools are bridging the diagnostic gap in under-resourced communities.</p>
+            <p><a href="#" class="btn btn-primary py-2 px-3">Read more</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ftco-section testimony-section img" style="background-image: url(/static/images/bg_3.jpg);">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row justify-content-center pb-3">
+      <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+        <span class="subheading">User Experiences</span>
+        <h2 class="mb-4">What Users Say About Our System</h2>
+      </div>
+    </div>
+    <div class="row ftco-animate justify-content-center">
+      <div class="col-md-12">
+        <div class="carousel-testimony owl-carousel ftco-owl">
+
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="text px-4">
+                <span class="quote d-flex align-items-center justify-content-center mb-3">
+                  <i class="icon-quote-left"></i>
+                </span>
+                <p class="mb-4">The kidney disease prediction system was easy to use and gave instant results. Very helpful!</p>
+                <p class="name">Suresh Kumar</p>
+                <span class="position">User</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="text px-4">
+                <span class="quote d-flex align-items-center justify-content-center mb-3">
+                  <i class="icon-quote-left"></i>
+                </span>
+                <p class="mb-4">Highly impressed with the accuracy. This tool is a great support for early detection.</p>
+                <p class="name">Pooja Reddy</p>
+                <span class="position">Medical Student</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="testimony-wrap text-center py-4 pb-5">
+              <div class="text px-4">
+                <span class="quote d-flex align-items-center justify-content-center mb-3">
+                  <i class="icon-quote-left"></i>
+                </span>
+                <p class="mb-4">Simple interface and powerful backend. It’s a smart step toward preventive healthcare.</p>
+                <p class="name">Dr. Raj Mehta</p>
+                <span class="position">Healthcare Analyst</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="ftco-section contact-section" id="contact-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5 pb-3">
+      <div class="col-md-7 heading-section text-center ftco-animate">
+        <h2 class="mb-4">Our Vision</h2>
+        <p>Empowering lives through early disease detection using AI-driven solutions that are fast, reliable, and accessible to all.</p>
+      </div>
+    </div>
+
+    <div class="row d-flex contact-info mb-5">
+      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+        <div class="align-self-stretch box p-4 text-center bg-light">
+          <div class="icon d-flex align-items-center justify-content-center">
+            <span class="icon-heartbeat"></span>
+          </div>
+          <h3 class="mb-4">Healthcare Innovation</h3>
+          <p>Leveraging machine learning and deep learning for faster diagnosis and personalized healthcare.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+        <div class="align-self-stretch box p-4 text-center bg-light">
+          <div class="icon d-flex align-items-center justify-content-center">
+            <span class="icon-layers"></span>
+          </div>
+          <h3 class="mb-4">Smart Platform</h3>
+          <p>One place to access AI-based diagnostics, historical reports, and future care suggestions.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+        <div class="align-self-stretch box p-4 text-center bg-light">
+          <div class="icon d-flex align-items-center justify-content-center">
+            <span class="icon-lock"></span>
+          </div>
+          <h3 class="mb-4">Data Privacy</h3>
+          <p>Your health data is encrypted and stored securely with full transparency and control.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 d-flex ftco-animate">
+        <div class="align-self-stretch box p-4 text-center bg-light">
+          <div class="icon d-flex align-items-center justify-content-center">
+            <span class="icon-globe"></span>
+          </div>
+          <h3 class="mb-4">Global Access</h3>
+          <p>Breaking location barriers by offering cloud-based diagnostics from anywhere in the world.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12 d-flex justify-content-center">
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+    <footer class="ftco-footer ftco-section img" style="background-image: url(/static/images/footer-bg.jpg);">
+  <div class="overlay"></div>
+  <div class="container-fluid px-md-5">
+    <div class="row mb-5">
+      
+      <!-- About Section -->
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">AI HealthCare</h2>
+          <p>Empowering lives with intelligent diagnostics and early detection using AI and Machine Learning.</p>
+          <ul class="ftco-footer-social list-unstyled mt-4">
+            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+            <li class="ftco-animate"><a href="#"><span class="icon-linkedin"></span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4 ml-md-4">
+          <h2 class="ftco-heading-2">Platform Features</h2>
+          <ul class="list-unstyled">
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Disease Prediction</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Real-time Analysis</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Reports & Insights</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Multilingual Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4 ml-md-4">
+          <h2 class="ftco-heading-2">Quick Links</h2>
+          <ul class="list-unstyled">
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Dashboard</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Upload Scan</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>How it Works</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>FAQs</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Solutions</h2>
+          <ul class="list-unstyled">
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Heart Disease Detection</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Brain Tumor Analysis</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Skin Cancer Scanning</a></li>
+            <li><a href="#"><span class="icon-long-arrow-right mr-2"></span>Child Health Monitoring</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Connect With Us</h2>
+          <div class="block-23 mb-3">
+            <ul>
+              <li><span class="icon icon-map-marker"></span><span class="text">No. 45 AI Health Street, Bengaluru, India</span></li>
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 98765 43210</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope pr-4"></span><span class="text">support@aihealthcare.com</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    
+
+            
+    
+  
+
+  <!-- loader -->
+ 
+
+{% endif %}
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="/static/js/popper.min.js"></script>
+  <script src="/static/js/bootstrap.min.js"></script>
+  <script src="/static/js/jquery.easing.1.3.js"></script>
+  <script src="/static/js/jquery.waypoints.min.js"></script>
+  <script src="/static/js/jquery.stellar.min.js"></script>
+  <script src="/static/js/owl.carousel.min.js"></script>
+  <script src="/static/js/jquery.magnific-popup.min.js"></script>
+  <script src="/static/js/aos.js"></script>
+  <script src="/static/js/jquery.animateNumber.min.js"></script>
+  <script src="/static/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="/static/js/google-map.js"></script>
+  
+  <script src="/static/js/main.js"></script>
+    
+  </body>
+</html>

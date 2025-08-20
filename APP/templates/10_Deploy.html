@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kidney Disease Upload</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url(https://t4.ftcdn.net/jpg/07/87/32/31/360_F_787323143_ATgo8DO8izG7zwETeTvaXFkAy11tXeuJ.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #ffffff;
+    }
+
+    .btn-home {
+      background-color: #ffffff;
+      color: #004080;
+      border: 2px solid #004080;
+      border-radius: 8px;
+      padding: 10px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .btn-home:hover {
+      background-color: #004080;
+      color: #ffffff;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 32px;
+      color: #f0f8ff;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .container {
+      width: 600px;
+      padding: 40px;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    form p {
+      font-size: 14px;
+      color: #ffdddd;
+    }
+
+    form label {
+      font-weight: 600;
+      color: #ffecb3;
+    }
+
+    form input[type="file"] {
+      width: 80%;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
+      border: none;
+    }
+
+    form input[type="submit"] {
+      width: 120px;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      border: none;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .circle {
+      margin-top: 40px;
+      height: 220px;
+      width: 260px;
+      border-radius: 50%;
+      background: linear-gradient(#ff3333, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .circle-score h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .uploaded-img {
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: 90%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <a class="btn-home" href="{% url 'Home_4' %}">⬅ Back to Home</a>
+    <h1>Kidney Disease Image Processing</h1>
+
+    <div class="container">
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>* This field is required</p>
+        {{ form.as_p }}
+        <input type="submit" value="UPLOAD">
+      </form>
+    </div>
+
+    {% if obj %}
+    <div>
+      <img class="uploaded-img" src="{{ obj.image.url }}" height="200" width="350">
+      <div class="circle">
+        <div class="circle-score">
+          <h2>{{ predict|upper }}</h2>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </center>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kidney Disease Information</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #e6f2ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #003366;
+    }
+
+    .navbar {
+      background-color: #003366;
+    }
+
+    .navbar-brand, .navbar-nav .nav-link {
+      color: #ffffff !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #ffcccb !important;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 40px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #0059b3;
+      border-bottom: 2px solid #d9e6f2;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    th {
+      background-color: #007acc;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    td, th {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #cce0f5;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f0f8ff;
+    }
+
+    .section-title {
+      margin-top: 40px;
+    }
+
+    @media screen and (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container text-center mt-4">
+  <h1 style="font-weight: bold; font-size: 36px; color: #2c3e50;">
+    Kidney Disease Classification
+  </h1>
+</div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="{% url 'Home_4' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'database' %}">Database</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="container">
+    <h2 class="section-title text-center">Predicted Condition: <span class="text-primary font-weight-bold">{{ predict }}</span></h2>
+
+   {% if obj %}
+<div class="row mt-4">
+  {% if predict == 'THE KIDNEY CANCER TYPE OF CYST AFFECTED' %}
+  <div class="col-md-12 mb-4">
+    <div class="card border-primary shadow">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Kidney Cyst Affected</h5>
+      </div>
+      <div class="card-body">
+        <h6><strong>Condition:</strong></h6>
+        <p>Fluid-filled sacs form in kidneys, usually harmless but can cause complications such as infection, pain, or hypertension.</p>
+
+        <h6><strong>Symptoms:</strong></h6>
+        <ul>
+          <li>Persistent back or abdominal pain</li>
+          <li>Frequent urination or blood in urine</li>
+          <li>Fever if cyst becomes infected</li>
+        </ul>
+
+        <h6><strong>Prevention & Care:</strong></h6>
+        <ul>
+          <li>Stay well hydrated (8+ glasses daily)</li>
+          <li>Regular kidney check-ups with ultrasound or CT scan</li>
+          <li>Reduce sodium intake and avoid smoking/alcohol</li>
+        </ul>
+
+        <h6><strong>Recommended Diet:</strong></h6>
+        <ul>
+          <li><strong>Morning:</strong> Oatmeal, berries, and green tea</li>
+          <li><strong>Noon:</strong> Grilled fish/chicken, brown rice, vegetables</li>
+          <li><strong>Evening:</strong> Light soup, whole grain toast</li>
+        </ul>
+
+        <h6><strong>Exercise Tips:</strong></h6>
+        <ul>
+          <li>Low-impact: walking, yoga, light aerobics</li>
+          <li>Avoid contact sports or heavy lifting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {% elif predict == 'THE KIDNEY CANCER TYPE OF A STONE AFFECTED' %}
+  <div class="col-md-12 mb-4">
+    <div class="card border-info shadow">
+      <div class="card-header bg-info text-white">
+        <h5 class="mb-0">Kidney Stone Affected</h5>
+      </div>
+      <div class="card-body">
+        <h6><strong>Condition:</strong></h6>
+        <p>Mineral and salt crystals form hard stones in the kidney. Can cause severe pain and urinary obstruction.</p>
+
+        <h6><strong>Symptoms:</strong></h6>
+        <ul>
+          <li>Sharp side pain, radiating to lower abdomen</li>
+          <li>Pink or brown colored urine</li>
+          <li>Nausea, vomiting, and painful urination</li>
+        </ul>
+
+        <h6><strong>Prevention & Care:</strong></h6>
+        <ul>
+          <li>Drink 2-3 liters of water daily</li>
+          <li>Limit oxalate foods (spinach, chocolate)</li>
+          <li>Reduce animal protein and sodium</li>
+        </ul>
+
+        <h6><strong>Recommended Diet:</strong></h6>
+        <ul>
+          <li><strong>Morning:</strong> Banana, oats with milk</li>
+          <li><strong>Noon:</strong> Lentil soup, brown rice, carrots</li>
+          <li><strong>Evening:</strong> Baked vegetables with tofu</li>
+        </ul>
+
+        <h6><strong>Exercise Tips:</strong></h6>
+        <ul>
+          <li>Moderate walking or treadmill</li>
+          <li>Avoid workouts that dehydrate (e.g., hot yoga)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {% elif predict == 'THE KIDNEY CANCER TYPE OF A TUMOR AFFECTED' %}
+  <div class="col-md-12 mb-4">
+    <div class="card border-danger shadow">
+      <div class="card-header bg-danger text-white">
+        <h5 class="mb-0">Kidney Tumor Affected</h5>
+      </div>
+      <div class="card-body">
+        <h6><strong>Condition:</strong></h6>
+        <p>Growth or mass in kidney tissue that may be benign or cancerous. Most common is renal cell carcinoma.</p>
+
+        <h6><strong>Symptoms:</strong></h6>
+        <ul>
+          <li>Blood in urine, unexplained weight loss</li>
+          <li>Fatigue, back/side pain, fever</li>
+        </ul>
+
+        <h6><strong>Prevention & Care:</strong></h6>
+        <ul>
+          <li>Early screening (especially with family history)</li>
+          <li>Avoid carcinogens (smoking, pollutants)</li>
+          <li>Maintain a healthy BMI</li>
+        </ul>
+
+        <h6><strong>Recommended Diet:</strong></h6>
+        <ul>
+          <li><strong>Morning:</strong> Fruit smoothie + flaxseed toast</li>
+          <li><strong>Noon:</strong> Grilled salmon + quinoa + salad</li>
+          <li><strong>Evening:</strong> Vegetable broth with soft tofu</li>
+        </ul>
+
+        <h6><strong>Exercise Tips:</strong></h6>
+        <ul>
+          <li>Yoga and deep breathing exercises</li>
+          <li>Consult doctor before high intensity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {% elif predict == 'NORMAL' %}
+  <div class="col-md-12 mb-4">
+    <div class="card border-success shadow">
+      <div class="card-header bg-success text-white">
+        <h5 class="mb-0">Normal Kidney Function</h5>
+      </div>
+      <div class="card-body">
+        <h6><strong>Condition:</strong></h6>
+        <p>Your kidneys are functioning within the normal range. Maintain current habits and regular checkups.</p>
+
+        <h6><strong>Healthy Habits:</strong></h6>
+        <ul>
+          <li>Stay hydrated and eat clean</li>
+          <li>Exercise regularly (30 mins/day)</li>
+        </ul>
+
+        <h6><strong>Diet Plan:</strong></h6>
+        <ul>
+          <li><strong>Morning:</strong> Avocado toast + herbal tea</li>
+          <li><strong>Noon:</strong> Chicken salad + multigrain bread</li>
+          <li><strong>Evening:</strong> Steamed veggies + dal + roti</li>
+        </ul>
+
+        <h6><strong>Exercise:</strong></h6>
+        <ul>
+          <li>Jogging, walking, home workouts</li>
+          <li>Stretching, yoga 2-3 times/week</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

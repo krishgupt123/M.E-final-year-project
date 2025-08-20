@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Information</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+  <style>
+    body {
+      background-color: #585858;
+      background-image: url('https://wallpaper.dog/large/20610779.jpg'); 
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      color: #007bff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .info-section {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h4 {
+      color: #343a40;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      background: #e9ecef;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    ul li i {
+      color: #007bff;
+      margin-right: 10px;
+    }
+
+    .text-success {
+      color: #28a745;
+    }
+
+    .table-custom {
+      background-color: #e7f3ff;
+      border: 1px solid #007bff;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .table-custom th {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+    }
+
+    .table-custom td {
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+        padding: 15px;
+      }
+
+      .info-section {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Health Information</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Home_4' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'patient_list' %}">Database</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'report' %}">Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'matrix' %}">Matrix Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Logout' %}">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+ 
+{% if prediction_text == 'This conditions is No Kidney Disease predict' %}
+<div class="container" id="home">
+  <div class="info-section">
+    <h2>Kidney Health Information</h2>
+
+    <!-- Summary Table -->
+    <h4 class="text-center">Patient Summary</h4>
+    <table class="table table-bordered table-custom">
+      <thead>
+        <tr><th>Parameter</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Prediction Result</td><td class="text-success">No Kidney Disease</td></tr>
+        <tr><td>Advice</td><td>Maintain a healthy lifestyle and monitor kidney health.</td></tr>
+        <tr><td>Recommendation</td><td>Regular check-ups, balanced diet, and physical activity.</td></tr>
+      </tbody>
+    </table>
+
+    <center>
+      <h4>KEEP YOUR KIDNEYS HEALTHY FOR OVERALL WELL-BEING</h4>
+      <h4><p class="text-success">Maintaining Healthy Kidneys</p></h4>
+    </center><br>
+
+    <h4>Causes of Kidney Problems</h4>
+    <ul>
+      <li><strong>Chronic Kidney Disease (CKD):</strong> Gradual damage to kidney tissues. It develops silently and may not show symptoms early.</li>
+      <li><strong>Diabetes:</strong> High sugar damages nephrons. Long-term diabetes is the leading cause of kidney failure.</li>
+      <li><strong>High Blood Pressure:</strong> Strains and weakens blood vessels. It reduces blood flow to kidneys, impairing filtration.</li>
+      <li><strong>Kidney Stones:</strong> Hard crystals block urine flow. If untreated, they may cause infections or kidney scarring.</li>
+      <li><strong>Infections:</strong> Repeated UTIs can lead to scarring. Pyelonephritis is a common kidney infection to watch.</li>
+      <li><strong>Genetic Conditions:</strong> Like PKD, form cysts in kidneys. They increase in size and disrupt normal functions.</li>
+      <li><strong>Medication Use:</strong> NSAIDs and certain antibiotics can be harmful. Always consult a doctor before prolonged use.</li>
+      <li><strong>Dehydration:</strong> Lack of fluids leads to crystal formation. Chronic dehydration may stress kidney function.</li>
+    </ul>
+
+    <h4>Prevention and Healthy Practices</h4>
+    <ul>
+      <li><strong>Stay Hydrated:</strong> Water helps filter waste. Aim for 2–3 liters per day unless otherwise advised.</li>
+      <li><strong>Healthy Diet:</strong> Low sodium, sugar, and processed foods. Include potassium-rich vegetables and fruits.</li>
+      <li><strong>Regular Exercise:</strong> Keeps weight and blood pressure in check. Helps prevent diabetes and heart issues.</li>
+      <li><strong>Monitor Blood Pressure/Sugar:</strong> Early detection can prevent damage. Use home kits or consult a clinic monthly.</li>
+      <li><strong>Use Medications Carefully:</strong> Only as prescribed by your physician. Avoid unnecessary antibiotics and painkillers.</li>
+      <li><strong>Quit Smoking:</strong> Reduces risk of kidney and heart disease. It also improves blood flow to the organs.</li>
+      <li><strong>Routine Check-ups:</strong> Test creatinine and GFR levels. Annual kidney scans are recommended for at-risk individuals.</li>
+      <li><strong>Limit Alcohol:</strong> Alcohol increases blood pressure and dehydrates you. Stick to moderate or occasional use only.</li>
+    </ul>
+
+    <h4>Exercise for Kidney Health</h4>
+    <ul>
+      <li><strong>Walking:</strong> Increases blood circulation and is easy to begin. Do it daily for 30 minutes for long-term results.</li>
+      <li><strong>Swimming:</strong> Gentle on joints and boosts overall stamina. Keeps heart and kidney function balanced.</li>
+      <li><strong>Cycling:</strong> Improves cardiovascular endurance. Great for weight management and reducing kidney load.</li>
+      <li><strong>Yoga:</strong> Lowers stress and improves flexibility. Reduces hypertension, which benefits kidney health.</li>
+    </ul>
+  </div>
+</div>
+
+{% elif prediction_text == 'This conditions is Kidney Disease predict' %}
+<div class="container" id="home">
+  <div class="info-section">
+    <h2>Patient Risk Level Prediction</h2>
+
+    <!-- Summary Table -->
+    <h4 class="text-center">Patient Summary</h4>
+    <table class="table table-bordered table-custom">
+      <thead>
+        <tr><th>Parameter</th><th>Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Prediction Result</td><td class="text-danger">High Risk Detected</td></tr>
+        <tr><td>Advice</td><td>Immediate consultation with a healthcare provider is strongly recommended.</td></tr>
+        <tr><td>Recommendation</td><td>Thorough diagnostic evaluation, timely medication, and critical lifestyle interventions.</td></tr>
+      </tbody>
+    </table>
+
+    <center>
+      <h4>GUIDANCE FROM A DOCTOR</h4>
+      <h4><p class="text-success">Managing Patient Risk Proactively</p></h4>
+    </center><br>
+
+    <h4>Common Causes of Elevated Risk Levels</h4>
+    <ul>
+      <li><strong>Chronic Illnesses:</strong> Conditions like diabetes, hypertension, and cardiovascular disease raise overall health risk.</li>
+      <li><strong>Obesity:</strong> Excess weight contributes to multiple complications including metabolic syndrome.</li>
+      <li><strong>Genetic Factors:</strong> Family history of diseases can increase predisposition to chronic health risks.</li>
+      <li><strong>Age & Gender:</strong> Advancing age and gender-based vulnerabilities may affect risk profiles.</li>
+      <li><strong>Lifestyle Habits:</strong> Poor diet, smoking, alcohol use, and sedentary behavior are major contributors.</li>
+      <li><strong>Environmental Exposure:</strong> Pollution and occupational hazards may heighten long-term risk.</li>
+    </ul>
+
+    <h4>Steps to Manage Risk Levels</h4>
+    <ul>
+      <li><strong>Timely Medications:</strong> Follow the prescribed treatment regimen to manage existing health conditions effectively.</li>
+      <li><strong>Regular Monitoring:</strong> Track key indicators such as blood pressure, glucose levels, and cholesterol.</li>
+      <li><strong>Healthy Nutrition:</strong> Adopt a balanced diet rich in vegetables, lean protein, and whole grains while avoiding processed foods.</li>
+      <li><strong>Mental Health:</strong> Manage stress, anxiety, and depression through counseling, support groups, or relaxation techniques.</li>
+      <li><strong>Hydration:</strong> Maintain proper fluid intake based on medical advice to support organ function.</li>
+      <li><strong>Medical Checkups:</strong> Schedule periodic health screenings to detect issues early and adjust care plans accordingly.</li>
+    </ul>
+
+    <h4>Recommended Exercises for All Risk Levels</h4>
+    <ul>
+      <li><strong>Walking:</strong> Safe and effective for improving circulation and overall wellness.</li>
+      <li><strong>Yoga:</strong> Reduces stress, improves flexibility, and supports cardiovascular health.</li>
+      <li><strong>Cycling:</strong> Low-impact activity to enhance heart health and endurance.</li>
+      <li><strong>Breathing Exercises:</strong> Help in regulating anxiety and maintaining focus during recovery or health management.</li>
+    </ul>
+  </div>
+</div>
+
+{% endif %}
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registration</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    :root {
+      --main-blue: #00ccff;
+      --main-purple: #000000;
+      --main-grey: #bdbdbd;
+      --sub-grey: #f5f5f5;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-image: url(https://cdcssl.ibsrv.net/ibimg/smb/2500x1334_80/webmgr/1z/4/k/hero.jpg.webp?68e2148aefe36be1693b02775704c6a2);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .container .title {
+      font-size: 32px;
+      font-weight: 600;
+      position: relative;
+      margin-bottom: 20px;
+      color: var(--main-blue);
+    }
+
+    .container .title::before {
+      content: "";
+      position: absolute;
+      height: 4px;
+      width: 60px;
+      background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+      bottom: -8px;
+      left: 0;
+    }
+
+    .user__details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .input__box {
+      width: calc(50% - 10px);
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .details {
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--main-grey);
+      display: block;
+    }
+
+    .input__box input {
+      height: 45px;
+      width: 100%;
+      outline: none;
+      border-radius: 6px;
+      border: 1px solid var(--main-grey);
+      padding: 0 40px 0 16px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    .input__box input:focus {
+      border-color: var(--main-purple);
+    }
+
+    .toggle-password {
+      position: absolute;
+      top: 36px;
+      right: 14px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .button {
+      margin-top: 30px;
+    }
+
+    .button input {
+      height: 50px;
+      width: 100%;
+      outline: none;
+      color: #fff;
+      border: none;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 6px;
+      background: linear-gradient(135deg, var(--main-blue), var(--main-purple));
+      transition: background 0.3s ease;
+    }
+
+    .button input:hover {
+      background: linear-gradient(-135deg, var(--main-blue), var(--main-purple));
+    }
+
+    @media only screen and (max-width: 584px) {
+      .container {
+        padding: 20px;
+      }
+
+      .input__box {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="title">Registration</div>
+  <form method="POST">
+    {% csrf_token %}
+    {% if form.errors %}
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <div id="form_errors">
+          {% for key, value in form.errors.items %}
+            <strong>{{ value }}</strong>
+          {% endfor %}
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endif %}
+
+    <div class="user__details">
+      <div class="input__box">
+        <span class="details">First Name</span>
+        {{ form.first_name }}
+      </div>
+      <div class="input__box">
+        <span class="details">Last Name</span>
+        {{ form.last_name }}
+      </div>
+      <div class="input__box">
+        <span class="details">Username</span>
+        {{ form.username }}
+      </div>
+      <div class="input__box">
+        <span class="details">Email</span>
+        {{ form.email }}
+      </div>
+      <div class="input__box">
+        <span class="details">Password</span>
+        <input type="password" name="password1" id="id_password1" required>
+        <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('id_password1', this)"></i>
+      </div>
+      <div class="input__box">
+        <span class="details">Confirm Password</span>
+        <input type="password" name="password2" id="id_password2" required>
+        <i class="fa-solid fa-eye toggle-password" onclick="togglePassword('id_password2', this)"></i>
+      </div>
+    </div>
+
+    <div class="button">
+      <input type="submit" value="Register">
+    </div>
+    <center><h5>You have an Account</h5><a href="{% url 'Login_3' %}">Go to Sign in</a></center>
+  </form>
+</div>
+
+<script>
+  function togglePassword(id, icon) {
+    const input = document.getElementById(id);
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    }
+  }
+</script>
+
+</body>
+</html>
